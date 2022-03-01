@@ -32,4 +32,9 @@ describe("constructor", () => {
     expect(pet.hunger).toEqual(5);
     expect(pet.fitness).toEqual(7);
   });
+
+  it("increases fitness level", () => {
+    const pet = new Pet("Fido");
+    expect(pet.walk).toBeInstanceOf(Function);
+  });
 });
