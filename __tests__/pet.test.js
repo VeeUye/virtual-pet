@@ -33,7 +33,7 @@ describe("constructor", () => {
     expect(pet.fitness).toEqual(7);
   });
 
-  it("increases fitness level", () => {
+  xit("increases fitness level", () => {
     const pet = new Pet("Fido");
     pet.walk();
     expect(pet.walk).toBeInstanceOf(Function);
