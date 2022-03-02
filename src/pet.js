@@ -1,6 +1,5 @@
-// const Pet = (petname) => {
-//   this.name = petName;
-// };
+// walk() adss 4 to fitness
+// fitness should not be greater than 10
 
 function Pet(petName) {
   this.name = petName;
@@ -15,6 +14,12 @@ Pet.prototype.growUp = function () {
   this.fitness -= 3;
 };
 
-Pet.prototype.walk = function () {};
+//would like to refactor this using Math.min
+Pet.prototype.walk = function () {
+  if ((this.fitness = 10));
+  if (this.fitness < 10) {
+    this.fitness = 10 - this.fitness + this.fitness;
+  }
+};
 
 module.exports = Pet;
