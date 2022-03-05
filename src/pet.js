@@ -18,7 +18,12 @@ function Pet(petName) {
 Pet.prototype.growUp = function () {
   this.age += getOlderBy;
   this.hunger += getHungryBy;
-  this.fitness -= loseFitnessBy;
+  if (this.fitness < loseFitnessBy) {
+    this.fitness = 0;
+  }
+  if (this.fitness >= loseFitnessBy) {
+    this.fitness -= loseFitnessBy;
+  }
 };
 
 //would like to refactor this using Math.min or ternary

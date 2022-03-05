@@ -35,8 +35,14 @@ describe("constructor", () => {
 
   it("increases fitness level", () => {
     const pet = new Pet("Fido");
-    pet.walk();
+    pet.growUp();
+    pet.growUp();
+    pet.growUp();
+    pet.growUp();
+    // pet.walk();
+    console.log(pet.fitness);
     expect(pet.walk).toBeInstanceOf(Function);
     expect(pet.fitness).toBeLessThanOrEqual(10);
+    expect(pet.fitness).toBeGreaterThanOrEqual(0);
   });
 });
