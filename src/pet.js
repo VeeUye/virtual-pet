@@ -49,13 +49,18 @@ Pet.prototype.checkUp = function () {
 };
 
 Pet.prototype.isAlive = function () {
-  return this.fitness <= 0
-    ? false
-    : this.hunger >= 10
-    ? false
-    : this.age >= 30
-    ? false
-    : true;
+  if (this.fitness > 0 && this.hunger < 10 && this.age < 30) {
+    return true;
+  }
+  return false;
+
+  // this.fitness <= 0
+  //   ? false
+  //   : this.hunger >= 10
+  //   ? false
+  //   : this.age >= 30
+  //   ? false
+  //   : true;
 
   // if (this.fitness <= 0) {
   //   return false;
