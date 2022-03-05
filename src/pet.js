@@ -14,29 +14,20 @@ function Pet(petName) {
   this.hunger = intialHunger;
   this.fitness = intialFitness;
 }
-
+// currently no max on hunger
 Pet.prototype.growUp = function () {
   this.age += getOlderBy;
   this.hunger += getHungryBy;
   this.fitness < loseFitnessBy
     ? (this.fitness = 0)
     : (this.fitness -= loseFitnessBy);
-  // if (this.fitness < loseFitnessBy) {
-  //   this.fitness = 0;
-  // }
-  // if (this.fitness >= loseFitnessBy) {
-  //   this.fitness -= loseFitnessBy;
-  // }
 };
 
-//would like to refactor this using Math.min or ternary
+//would like to refactor this using Math.min
 Pet.prototype.walk = function () {
-  if (this.fitness <= intialFitness - getFitBy) {
-    this.fitness += getFitBy;
-  }
-  if (this.fitness > intialFitness - getFitBy) {
-    this.fitness = intialFitness;
-  }
+  this.fitness <= intialFitness - getFitBy
+    ? (this.fitness += getFitBy)
+    : (this.fitness = intialFitness);
 };
 
 module.exports = Pet;
