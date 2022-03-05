@@ -15,6 +15,13 @@ function Pet(petName) {
   this.hunger = intialHunger;
   this.fitness = intialFitness;
 }
+
+Pet.prototype = {
+  get isAlive() {
+    return this.fitness > 0 && this.hunger < 10 && this.age < 30;
+  }
+};
+
 // currently no max on hunger
 Pet.prototype.growUp = function () {
   this.age += getOlderBy;
@@ -48,30 +55,33 @@ Pet.prototype.checkUp = function () {
   return "I feel great!";
 };
 
-Pet.prototype.isAlive = function () {
-  if (this.fitness > 0 && this.hunger < 10 && this.age < 30) {
-    return true;
-  }
-  return false;
+// Pet.prototype.isAlive() = function {
+//   return this.isAlive;
+// }
 
-  // this.fitness <= 0
-  //   ? false
-  //   : this.hunger >= 10
-  //   ? false
-  //   : this.age >= 30
-  //   ? false
-  //   : true;
+// Pet.prototype.isAlive = function () {
+//   if (this.fitness > 0 && this.hunger < 10 && this.age < 30) {
+//     return true;
+//   }
+//   return false;
 
-  // if (this.fitness <= 0) {
-  //   return false;
-  // }
-  // if (this.hunger >= 10) {
-  //   return false;
-  // }
-  // if (this.age >= 30) {
-  //   return false;
-  // }
-  // return true;
-};
+// this.fitness <= 0
+//   ? false
+//   : this.hunger >= 10
+//   ? false
+//   : this.age >= 30
+//   ? false
+//   : true;
+
+// if (this.fitness <= 0) {
+//   return false;
+// }
+// if (this.hunger >= 10) {
+//   return false;
+// }
+// if (this.age >= 30) {
+//   return false;
+// }
+// return true;
 
 module.exports = Pet;
