@@ -65,6 +65,16 @@ describe("constructor", () => {
   });
 
   it("check`s pet is alive or dead", () => {
+    pet.fitness = 0;
+    pet2.hunger = 10;
+    pet3.age = 30;
+    pet4.age = 4;
+    pet4.hunger = 3;
+    pet4.fitness = 10;
     expect(pet.isAlive).toBeInstanceOf(Function);
+    expect(pet.isAlive()).toEqual(false);
+    expect(pet2.isAlive()).toEqual(false);
+    expect(pet3.isAlive()).toEqual(false);
+    expect(pet4.isAlive()).toEqual(true);
   });
 });
