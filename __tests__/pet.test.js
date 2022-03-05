@@ -1,32 +1,32 @@
 const Pet = require("../src/pet");
 
 describe("constructor", () => {
+  const pet = new Pet("Fido");
+  const pet2 = new Pet("Bob");
+  const pet3 = new Pet("Karen");
+  const pet4 = new Pet("Petty");
+
   it("returns an object", () => {
     expect(new Pet()).toBeInstanceOf(Object);
   });
 
   it("renames pet", () => {
-    const pet = new Pet("Fido");
     expect(pet.name).toBe("Fido");
   });
 
   it("has an initial age of 0", () => {
-    const pet = new Pet("Fido");
     expect(pet.age).toBe(0);
   });
 
   it("has an initial hunger of 0", () => {
-    const pet = new Pet("Fido");
     expect(pet.hunger).toBe(0);
   });
 
   it("has an intial fitness of 10", () => {
-    const pet = new Pet("Fido");
     expect(pet.fitness).toBe(10);
   });
 
   it("increments age by 1, hunger by 5, decrements fitness by 3", () => {
-    const pet = new Pet("Fido");
     pet.growUp();
     expect(pet.age).toEqual(1);
     expect(pet.hunger).toEqual(5);
@@ -34,10 +34,8 @@ describe("constructor", () => {
   });
 
   it("increases fitness level", () => {
-    const pet = new Pet("Fido");
     pet.fitness = 4;
     pet.walk();
-    console.log(pet.fitness);
     expect(pet.walk).toBeInstanceOf(Function);
     expect(pet.fitness).toBeLessThanOrEqual(10);
     expect(pet.fitness).toBeGreaterThanOrEqual(0);
@@ -45,7 +43,6 @@ describe("constructor", () => {
   });
 
   it("decreases hunger level", () => {
-    const pet = new Pet("Fido");
     pet.hunger = 3;
     pet.feed();
     expect(pet.feed).toBeInstanceOf(Function);
@@ -54,10 +51,6 @@ describe("constructor", () => {
   });
 
   it("checks status of pet", () => {
-    const pet = new Pet("Fido");
-    const pet2 = new Pet("Bob");
-    const pet3 = new Pet("Karen");
-    const pet4 = new Pet("Petty");
     pet.fitness = 3;
     pet2.hunger = 5;
     pet3.fitness = 3;
@@ -69,5 +62,9 @@ describe("constructor", () => {
     expect(pet2.checkUp()).toBe("I am hungry");
     expect(pet3.checkUp()).toBe("I am hungry AND I need a walk");
     expect(pet4.checkUp()).toBe("I feel great!");
+  });
+
+  it("check`s pet is alive or dead", () => {
+    expect(pet.isAlive).toBeInstanceOf(Function);
   });
 });
