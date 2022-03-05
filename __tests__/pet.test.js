@@ -35,14 +35,21 @@ describe("constructor", () => {
 
   it("increases fitness level", () => {
     const pet = new Pet("Fido");
-    pet.growUp();
-    pet.growUp();
-    pet.growUp();
-    pet.growUp();
-    // pet.walk();
+    pet.fitness = 4;
+    pet.walk();
     console.log(pet.fitness);
     expect(pet.walk).toBeInstanceOf(Function);
     expect(pet.fitness).toBeLessThanOrEqual(10);
     expect(pet.fitness).toBeGreaterThanOrEqual(0);
+    expect(pet.fitness).toEqual(8);
+  });
+
+  it("decreases hunger level", () => {
+    const pet = new Pet("Fido");
+    pet.hunger = 3;
+    pet.feed();
+    expect(pet.feed).toBeInstanceOf(Function);
+    expect(pet.hunger).toBeGreaterThanOrEqual(0);
+    expect(pet.hunger).toEqual(0);
   });
 });

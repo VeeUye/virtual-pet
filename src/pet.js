@@ -6,6 +6,7 @@ const intialFitness = 10;
 const getFitBy = 4;
 const loseFitnessBy = 3;
 const getHungryBy = 5;
+const decreaseHungerBy = 3;
 const getOlderBy = 1;
 
 function Pet(petName) {
@@ -28,6 +29,10 @@ Pet.prototype.walk = function () {
   this.fitness <= intialFitness - getFitBy
     ? (this.fitness += getFitBy)
     : (this.fitness = intialFitness);
+};
+
+Pet.prototype.feed = function () {
+  this.hunger -= decreaseHungerBy;
 };
 
 module.exports = Pet;
