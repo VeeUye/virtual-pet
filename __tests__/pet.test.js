@@ -52,4 +52,22 @@ describe("constructor", () => {
     expect(pet.hunger).toBeGreaterThanOrEqual(0);
     expect(pet.hunger).toEqual(0);
   });
+
+  it("checks status of pet", () => {
+    const pet = new Pet("Fido");
+    const pet2 = new Pet("Bob");
+    const pet3 = new Pet("Karen");
+    const pet4 = new Pet("Petty");
+    pet.fitness = 3;
+    pet2.hunger = 5;
+    pet3.fitness = 3;
+    pet3.hunger = 5;
+    pet4.hunger = 1;
+    pet4.fitness = 9;
+    expect(pet.checkUp).toBeInstanceOf(Function);
+    expect(pet.checkUp()).toBe("I need a walk");
+    expect(pet2.checkUp()).toBe("I am hungry");
+    expect(pet3.checkUp()).toBe("I am hungry AND I need a walk");
+    expect(pet4.checkUp()).toBe("I feel great!");
+  });
 });
