@@ -23,10 +23,11 @@ Pet.prototype.growUp = function () {
 
 //would like to refactor this using Math.min or ternary
 Pet.prototype.walk = function () {
-  this.fitness += 4;
-  if ((this.fitness = intialFitness));
-  if (this.fitness < intialFitness) {
-    this.fitness = intialFitness - this.fitness + this.fitness;
+  if (this.fitness <= intialFitness - getFitBy) {
+    this.fitness += getFitBy;
+  }
+  if (this.fitness > intialFitness - getFitBy) {
+    this.fitness = intialFitness;
   }
 };
 
