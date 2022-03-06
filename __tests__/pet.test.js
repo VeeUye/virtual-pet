@@ -50,6 +50,10 @@ describe("feed", () => {
     expect(pet.hunger).toBeGreaterThanOrEqual(0);
     expect(pet.hunger).toEqual(0);
   });
+  it("thows an error if pet is not alive", () => {
+    pet.age = 30;
+    expect(() => pet.feed()).toThrow("Your pet is no longer alive :(");
+  });
 });
 
 describe("checkUp", () => {
