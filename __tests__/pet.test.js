@@ -1,38 +1,37 @@
 const Pet = require("../src/pet");
+const pet = new Pet("Fido");
+const pet2 = new Pet("Bob");
+const pet3 = new Pet("Karen");
+const pet4 = new Pet("Petty");
 
 describe("constructor", () => {
-  const pet = new Pet("Fido");
-  const pet2 = new Pet("Bob");
-  const pet3 = new Pet("Karen");
-  const pet4 = new Pet("Petty");
-
   it("returns an object", () => {
     expect(new Pet()).toBeInstanceOf(Object);
   });
-
   it("renames pet", () => {
     expect(pet.name).toBe("Fido");
   });
-
   it("has an initial age of 0", () => {
     expect(pet.age).toBe(0);
   });
-
   it("has an initial hunger of 0", () => {
     expect(pet.hunger).toBe(0);
   });
-
   it("has an intial fitness of 10", () => {
     expect(pet.fitness).toBe(10);
   });
+});
 
+describe("growUp", () => {
   it("increments age by 1, hunger by 5, decrements fitness by 3", () => {
     pet.growUp();
     expect(pet.age).toEqual(1);
     expect(pet.hunger).toEqual(5);
     expect(pet.fitness).toEqual(7);
   });
+});
 
+describe("walk", () => {
   it("increases fitness level", () => {
     pet.fitness = 4;
     pet.walk();
@@ -41,7 +40,9 @@ describe("constructor", () => {
     expect(pet.fitness).toBeGreaterThanOrEqual(0);
     expect(pet.fitness).toEqual(8);
   });
+});
 
+describe("feed", () => {
   it("decreases hunger level", () => {
     pet.hunger = 3;
     pet.feed();
@@ -49,7 +50,9 @@ describe("constructor", () => {
     expect(pet.hunger).toBeGreaterThanOrEqual(0);
     expect(pet.hunger).toEqual(0);
   });
+});
 
+describe("checkUp", () => {
   it("checks status of pet", () => {
     pet.fitness = 3;
     pet2.hunger = 5;
@@ -63,7 +66,9 @@ describe("constructor", () => {
     expect(pet3.checkUp()).toBe("I am hungry AND I need a walk");
     expect(pet4.checkUp()).toBe("I feel great!");
   });
+});
 
+describe("isAlive", () => {
   it("check`s pet is alive or dead", () => {
     pet.fitness = 0;
     pet2.hunger = 10;

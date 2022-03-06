@@ -1,5 +1,3 @@
-// walk() adss 4 to fitness
-// fitness should not be greater than 10
 const initialAge = 0;
 const intialHunger = 0;
 const intialFitness = 10;
@@ -22,7 +20,6 @@ Pet.prototype = {
   }
 };
 
-// currently no max on hunger
 Pet.prototype.growUp = function () {
   this.age += getOlderBy;
   this.hunger += getHungryBy;
@@ -54,34 +51,5 @@ Pet.prototype.checkUp = function () {
   }
   return "I feel great!";
 };
-
-// Pet.prototype.isAlive() = function {
-//   return this.isAlive;
-// }
-
-// Pet.prototype.isAlive = function () {
-//   if (this.fitness > 0 && this.hunger < 10 && this.age < 30) {
-//     return true;
-//   }
-//   return false;
-
-// this.fitness <= 0
-//   ? false
-//   : this.hunger >= 10
-//   ? false
-//   : this.age >= 30
-//   ? false
-//   : true;
-
-// if (this.fitness <= 0) {
-//   return false;
-// }
-// if (this.hunger >= 10) {
-//   return false;
-// }
-// if (this.age >= 30) {
-//   return false;
-// }
-// return true;
 
 module.exports = Pet;
