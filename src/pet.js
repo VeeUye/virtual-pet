@@ -30,6 +30,9 @@ Pet.prototype.growUp = function () {
 
 //would like to refactor this using Math.min
 Pet.prototype.walk = function () {
+  if (!this.isAlive) {
+    throw new Error("Your pet is no longer alive :(");
+  }
   this.fitness <= intialFitness - getFitBy
     ? (this.fitness += getFitBy)
     : (this.fitness = intialFitness);

@@ -40,30 +40,37 @@ describe("walk", () => {
     expect(pet.fitness).toBeGreaterThanOrEqual(0);
     expect(pet.fitness).toEqual(8);
   });
+  it("thows an error if pet is not alive", () => {
+    pet.fitness = 0;
+    expect(() => pet.walk()).toThrow("Your pet is no longer alive :(");
+  });
 });
 
 describe("feed", () => {
-  it("decreases hunger level", () => {
-    pet.hunger = 3;
-    pet.feed();
-    expect(pet.feed).toBeInstanceOf(Function);
-    expect(pet.hunger).toBeGreaterThanOrEqual(0);
-    expect(pet.hunger).toEqual(0);
-  });
   it("thows an error if pet is not alive", () => {
     pet.age = 30;
     expect(() => pet.feed()).toThrow("Your pet is no longer alive :(");
+  });
+  it("decreases hunger level", () => {
+    // const pet5 = new Pet("WorkPet");
+    pet2.hunger = 3;
+    pet2.feed();
+    expect(pet2.feed).toBeInstanceOf(Function);
+    expect(pet2.hunger).toBeGreaterThanOrEqual(0);
+    expect(pet2.hunger).toEqual(0);
   });
 });
 
 describe("checkUp", () => {
   it("checks status of pet", () => {
     pet.fitness = 3;
+    pet.hunger = 0;
     pet2.hunger = 5;
     pet3.fitness = 3;
     pet3.hunger = 5;
     pet4.hunger = 1;
     pet4.fitness = 9;
+    console.log(pet.hunger);
     expect(pet.checkUp).toBeInstanceOf(Function);
     expect(pet.checkUp()).toBe("I need a walk");
     expect(pet2.checkUp()).toBe("I am hungry");
