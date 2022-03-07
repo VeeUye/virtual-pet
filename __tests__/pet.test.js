@@ -21,7 +21,12 @@ describe("constructor", () => {
 
 describe("growUp", () => {
   const pet = new Pet("Fido");
+  it("thows an error if pet is not alive", () => {
+    pet.age = 30;
+    expect(() => pet.feed()).toThrow("Your pet is no longer alive :(");
+  });
   it("increments age by 1, hunger by 5, decrements fitness by 3", () => {
+    pet.age = 0;
     pet.growUp();
     expect(pet.age).toEqual(1);
     expect(pet.hunger).toEqual(5);
@@ -63,6 +68,10 @@ describe("feed", () => {
 
 describe("checkUp", () => {
   const pet = new Pet("Fido");
+  it("returns death string if pet is not alive", () => {
+    pet.hunger = 10;
+    expect(pet.checkUp()).toBe("Your pet is no longer alive :(");
+  });
   it("checks status of pet", () => {
     pet.fitness = 3;
     pet.hunger = 0;
