@@ -1,6 +1,9 @@
 const initialAge = 0;
+const deathAge = 30;
 const intialHunger = 0;
+const deathHunger = 10;
 const intialFitness = 10;
+const deathFitness = 0;
 const getFitBy = 4;
 const loseFitnessBy = 3;
 const getHungryBy = 5;
@@ -16,7 +19,11 @@ function Pet(petName) {
 
 Pet.prototype = {
   get isAlive() {
-    return this.fitness > 0 && this.hunger < 10 && this.age < 30;
+    return (
+      this.fitness > deathFitness &&
+      this.hunger < deathHunger &&
+      this.age < deathAge
+    );
   }
 };
 
@@ -27,7 +34,7 @@ Pet.prototype.growUp = function () {
   this.age += getOlderBy;
   this.hunger += getHungryBy;
   this.fitness < loseFitnessBy
-    ? (this.fitness = 0)
+    ? (this.fitness = deathFitness)
     : (this.fitness -= loseFitnessBy);
 };
 
