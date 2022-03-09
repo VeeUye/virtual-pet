@@ -7,6 +7,7 @@ A simple virtual pet program created in JavaScript.
 
 - JavaScript
 - Jest
+- Node
   <br><br>
 
 ## Description
