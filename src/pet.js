@@ -72,9 +72,7 @@ class Pet {
     return "I feel great!";
   }
 
-  adoptChild(child) {
-    this.children.push(child);
-  }
+  haveBaby(child) {}
 }
 
 module.exports = Pet;

@@ -113,7 +113,7 @@ describe("isAlive", () => {
 
 describe("pets having children", () => {
   const parent = new Pet("King Kong");
-  xit("has no children initially", () => {
+  it("has no children initially", () => {
     expect(parent.children).toEqual([]);
   });
   it("has a baby", () => {
