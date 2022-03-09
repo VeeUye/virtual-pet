@@ -72,7 +72,10 @@ class Pet {
     return "I feel great!";
   }
 
-  haveBaby(child) {}
+  haveBaby(petName) {
+    const baby = new Pet(petName);
+    this.children.push(baby);
+  }
 }
 
 module.exports = Pet;
