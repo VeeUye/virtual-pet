@@ -76,6 +76,10 @@ class Pet {
     const baby = new Pet(petName);
     this.children.push(baby);
   }
+
+  gotKids() {
+    return (quickLook = {});
+  }
 }
 
 module.exports = Pet;

@@ -114,6 +114,7 @@ describe("isAlive", () => {
 describe("pets having children", () => {
   const parent = new Pet("King Kong");
   const baby = new Pet("Little Kong");
+  const baby2 = new Pet("Mini Kong");
   it("has no children initially", () => {
     expect(parent.children).toEqual([]);
   });
@@ -122,5 +123,15 @@ describe("pets having children", () => {
     parent.haveBaby("Little Kong");
     expect(parent.children.length).toEqual(1);
     expect(parent.children).toEqual([baby]);
+    parent.haveBaby("Mini Kong");
+    expect(parent.children.length).toEqual(2);
+    expect(parent.children).toEqual([baby, baby2]);
+    console.log(parent.children);
   });
+});
+
+// unfinished
+describe("shows a destructured array with name and number of children only", () => {
+  const parent = new Pet("King Kong");
+  expect(parent.gotKids).toBeInstanceOf(Function);
 });
