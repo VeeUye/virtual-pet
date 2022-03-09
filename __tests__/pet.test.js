@@ -112,25 +112,19 @@ describe("isAlive", () => {
 });
 
 describe("pets having children", () => {
-  const parent = new Pet("Ripley");
-  const child = new Pet("Monster");
-  const child2 = new Pet("Monster 2");
-  it("checks pets are pets", () => {
-    expect(parent).toBeInstanceOf(Object);
-    expect(child).toBeInstanceOf(Object);
-  });
-  it("has no children initially", () => {
+  const parent = new Pet("King Kong");
+  xit("has no children initially", () => {
     expect(parent.children).toEqual([]);
   });
-  it("adopts a child", () => {
-    expect(parent.adoptChild).toBeInstanceOf(Function);
+  it("has a baby", () => {
+    expect(parent.haveBaby).toBeInstanceOf(Function);
 
-    parent.adoptChild(child);
-    expect(parent.children.length).toEqual(1);
-    expect(parent.children[0]).toEqual(child);
+    // parent.adoptChild(child);
+    // expect(parent.children.length).toEqual(1);
+    // expect(parent.children[0]).toEqual(child);
 
-    parent.adoptChild(child2);
-    expect(parent.children.length).toEqual(2);
-    expect(parent.children[1]).toEqual(child2);
+    // parent.adoptChild(child2);
+    // expect(parent.children.length).toEqual(2);
+    // expect(parent.children[1]).toEqual(child2);
   });
 });
